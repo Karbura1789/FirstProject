@@ -107,24 +107,19 @@
     var btn = document.querySelector("#L_btn");
 
     btn.onclick = function(){
-        var userName=encodeURIComponent(document.querySelector("#L_account").value);
-        var pwd=encodeURIComponent(document.querySelector("#L_pwd").value);
 
-        var par= "username=" + userName + "&pwd" + pwd;
+        var userName = encodeURIComponent(document.querySelector("#L_account").value);
+        var pwd = encodeURIComponent(document.querySelector("#L_pwd").value);
+        var par = "username=" + userName + "&pwd=" + pwd;
+        requestMethod('post', 'login', par, function(str){
 
-        requestMethod('post','login',par,function(str){
-            if(str=="登录成功"){
+            if (str == "登录成功"){
                 location.href = "DropletService.html";
-            }
-            else {
+            } else {
                 alert(str);
             }
         });
     }
-
-
-
-
 
 </script>
 
